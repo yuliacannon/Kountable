@@ -1,0 +1,77 @@
+.registration-form{
+    background-color: #fff;
+    margin: 0 38vw;
+    padding: 40px;
+    text-align: left;
+    height: 45vh;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: #000;
+}
+
+h1{
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+input{
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 0px;
+    background-color: #f3f6f9;
+    box-shadow: 0 4px 2px -2px#dee5ed;
+    height: 28px;
+    font-family: sans-serif;
+    text-indent: 1em;
+    font-weight: bold;
+   
+}
+
+input:focus{
+    box-shadow: 0 4px 2px -2px#c2dbed;
+    outline: none;
+}
+
+input::placeholder{
+    font-weight: normal;
+    height: 28px;
+}
+
+.btn-submit{
+    margin-right: 140%;
+    margin-left: 10%;
+    width: 50%;
+    text-align: center;
+    display: block;
+    margin: 40% auto;
+
+
+}
+
+.btn-submit input{
+    text-indent: 0;
+    background-color: #0080d6;
+    box-shadow: none;
+    height: 35px;
+    color: #fff;
+}
+
+.btn-submit input:hover{
+    box-shadow: 0 4px 2px -2px#c2dbed;
+}
+
+body{
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+p{
+    margin-top: 20px;
+}
+
+
+ 
