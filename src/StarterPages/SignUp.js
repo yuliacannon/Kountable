@@ -44,9 +44,7 @@ class SignUp extends Component{
 
         
     }
-
-
-    
+ 
 
     render(){
         return(

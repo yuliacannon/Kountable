@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../img/logo2.png'
 import './StarterLayout.css'
-import {Switch, Router, Route, BrowserRouter } from 'react-router-dom'
-import SignUp from './SignUp'
-import LogIn from './LogIn'
+import { BrowserRouter } from 'react-router-dom'
+
 
 
 class StarterLayout extends Component{
@@ -14,13 +13,9 @@ class StarterLayout extends Component{
                 <div className='logo'>
                     <img src={logo} alt='logo'/>
                 </div>
-                
-            <Switch>
-                <Route path="/signup" component={SignUp} />
-                <Route path="/login" component={LogIn}/>
-            </Switch>
-            </div>
+                {this.props.children}
             
+            </div>
             </BrowserRouter>
         );
     }
@@ -28,4 +23,3 @@ class StarterLayout extends Component{
 
 export default StarterLayout;
 
-  //<Route path="/signup" component={SignUp} />

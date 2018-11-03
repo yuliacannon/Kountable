@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import logo from './img/logo.png'
 import user from './img/user.png'
 import './App.css';
-import {Switch, Router, Route, BrowserRouter } from 'react-router-dom'
-import SignUp from './StarterPages/SignUp'
+import { BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -16,13 +15,13 @@ class App extends Component {
         </div>
 
         <div className='content'>
-
+          {this.props.children}
         </div>
 
         <div className='footer'>
           <ul>
-            <li><a href=''>Privacy</a></li>
-            <li><a href=''>Terms of Service</a></li>
+            <li><a href='#'>Privacy</a></li>
+            <li><a href='#'>Terms of Service</a></li>
           </ul>
         </div>
         

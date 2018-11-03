@@ -1,28 +1,73 @@
 import React, { Component } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom'
+import eye from '../img/round-remove_red_eye-24px.svg'
 
 
 class LogIn extends Component{
-    state = {value: ''};
+    state = {type: 'password',
+    email: '',
+    password: '',
+    validateForm: false
+    };
+
+    handleChange =(e) =>{
+        this.setState({ [e.target.name] : e.target.value });
+       }
+
+    showPassword = ()=>{
+        this.setState({ type : this.state.type === 'password' ?'text': 'password' });
+    }
+
+    logIn = () =>{
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        let filteredUsers = users.filter(user => {
+            return user.email === this.state.email && user.password === this.state.password;
+        });
+
+        if(filteredUsers.length){
+            alert('You are logged in')
+        }
+    }
 
     render(){
         return(
             <div className='main-wrapper'>
                 <form className='registration-form'>
-                    <h1>Log in to your account account</h1>
+                    <h1>Log in to your account</h1>
 
-                    <label for="email">Email address
-                        <input type="text" value={this.state.value} value='Enter email' name="email" required/>
+                    <label htmlFor="email">Email address
+                        <input type="text"
+                         onChange={this.handleChange}
+                         value={this.state.email} 
+                         placeholder='Enter email' 
+                         name="email" 
+                         required/>
                     </label>
 
-                    <label for="psw">Password
-                        <input type="password" value='******' name="psw" required/>
-                    </label>
+                    <div className='password-input'>
+                        <label htmlFor="password">Password
+                            <input 
+                            type={this.state.type} 
+                            onChange={this.handleChange}
+                            placeholder='******'
+                            value={this.state.password} 
+                            name="password" 
+                            required/>
+                            <img src={eye} onClick={this.showPassword} alt='hide' />
+                        </label>
+                    </div>
                     
 
 
-                    <div className='btn-submit'><input type="submit" value="Log in" /></div>
+                    <div className='btn-submit'>
+                        <input 
+                            type="submit" 
+                            value="Log in"
+                            onClick={this.logIn}
+                             />
+                    </div>
                 </form>
                 <p>Don't have an account yet? <Link to='/signup'>Sign up</Link></p>
             </div>

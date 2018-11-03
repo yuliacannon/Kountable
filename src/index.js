@@ -1,36 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {Switch, Router, Route, BrowserRouter } from 'react-router-dom'
-
+import {Switch, Route, BrowserRouter } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
-import StarterLayout from './StarterPages/StarterLayout';
-import App from './App';
 
+import StarterLayout from './StarterPages/StarterLayout';
 import SignUp from './StarterPages/SignUp'
 import LogIn from './StarterPages/LogIn'
+import App from './App'
 
-// ReactDOM.render((
-//     <BrowserRouter>
-//         <Switch>
-        
-//         <Route exactpath='/' component={StarterLayout}>
-//           <Route path="signup" component={SignUp} />
-//           <Route path="login" component={LogIn}/>
-//         </Route>
+
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+    <Route {...rest} render={props => (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    )} />
+  )
+
+  const Bar = () => (
+    <p>Bar</p>
+  ) 
+
+ReactDOM.render((
+    <BrowserRouter>
+        <Switch>
+
+        <AppRoute path="/signup" layout={StarterLayout} component={SignUp} />
+        <AppRoute path="/login" layout={StarterLayout} component={LogIn}/>
+        <AppRoute path="/ko" layout={App} component={Bar}/>
+
       
-//         <Route component={App}>
-//         </Route>
-//       </Switch>
-//     </BrowserRouter>
-//   ), document.getElementById('root'));
-
-ReactDOM.render(<StarterLayout/>,document.getElementById('root'));
+        
+      </Switch>
+    </BrowserRouter>
+  ), document.getElementById('root'));
 
 
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
