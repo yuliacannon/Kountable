@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom'
+import eye from '../img/round-remove_red_eye-24px.svg'
 
 class SignUp extends Component{
     state = {
+        type: 'password',
         email: '',
-        password: ''
+        password: '',
+        validateForm: false
     };
 
     handleChange =(e) =>{
@@ -13,11 +16,37 @@ class SignUp extends Component{
        }
 
     validateForm =()=>{
-        return (
-            this.state.email.length > 0 &&
-            this.state.password.length > 0
-          );
+        
+        if(this.state.email.length > 0 && this.state.password.length > 0){
+                this.setState({validateForm: true});
+            }
+            return !this.state.validateForm;
+        }
+
+    showPassword = ()=>{
+        this.setState({ type : this.state.type === 'password' ?'text': 'password' });
     }
+
+    saveAccount = () =>{
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        let filteredUsers = users.filter(user => {
+            return user.email === this.state.email && user.password === this.state.password;
+        });
+
+        if(!filteredUsers.length){
+            users.push({email: this.state.email, password: this.state.password});
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+        else{
+            alert('The user already exists.')
+        }
+
+        
+    }
+
+
+    
 
     render(){
         return(
@@ -25,16 +54,37 @@ class SignUp extends Component{
                 <form className='registration-form'>
                     <h1>Create an account</h1>
 
-                    <label for="email">Email address
-                        <input type="text" value={this.state.email} onChange={this.handleChange} placeholder='Enter email' name="email" required/>
+                    <label htmlFor="email">Email address
+                        <input 
+                        type="text"  
+                        onChange={this.handleChange} 
+                        value={this.state.email} 
+                        placeholder='Enter email' 
+                        name="email" 
+                        required/>
                     </label>
 
-                    <label for="psw">Create a password
-                        <input type="password" value={this.state.password} onChange={this.handleChange} placeholder='******' name="psw" required/>
+                    <div className='password-input'>
+                    <label htmlFor="psw">Create a password
+                        <input 
+                        type={this.state.type}  
+                        onChange={this.handleChange} 
+                        value={this.state.password} 
+                        placeholder='******' 
+                        name="password" 
+                        required/>
+                        <img src={eye} onClick={this.showPassword} alt='hide' />
                         
                     </label>
+                    </div>
 
-                    <div className='btn-submit'><input type="submit" value="Sign up" disabled={!this.validateForm()}/></div>
+                    <div className='btn-submit'>
+                        <input 
+                            //disabled={this.validateForm}
+                            onClick={this.saveAccount} 
+                            type="submit" value="Sign up" 
+                            />
+                    </div>
                 </form>
                 <p>Already have a Kountable account? <Link to='/login'>Log in</Link></p>
             </div>

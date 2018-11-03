@@ -4,7 +4,7 @@
     padding: 40px;
     text-align: left;
     height: 45vh;
-    font-size: 14px;
+    font-size: 13px;
     font-family: sans-serif;
     font-weight: bolder;
     color: #000;
@@ -18,6 +18,7 @@ h1{
 
 input{
     display: block;
+    margin-top: 5px;
     margin-bottom: 20px;
     width: 100%;
     border: 0px;
@@ -47,7 +48,7 @@ input::placeholder{
     text-align: center;
     display: block;
     margin: 40% auto;
-
+    
 
 }
 
@@ -57,6 +58,7 @@ input::placeholder{
     box-shadow: none;
     height: 35px;
     color: #fff;
+    cursor: pointer;
 }
 
 .btn-submit input:hover{
@@ -71,6 +73,20 @@ body{
 
 p{
     margin-top: 20px;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input img {
+    position: absolute;
+    right: -10px;
+    padding: 10px 12px;
+    width: 15px;
+    top: 19px;
+    margin-right: 0.5em;
+    cursor: pointer;
 }
 
 

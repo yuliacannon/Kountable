@@ -11,7 +11,7 @@ class StarterLayout extends Component{
         return(
             <BrowserRouter>
             <div className='main-wrapper'>
-                <div class='logo'>
+                <div className='logo'>
                     <img src={logo} alt='logo'/>
                 </div>
                 
