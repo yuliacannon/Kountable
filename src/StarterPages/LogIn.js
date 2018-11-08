@@ -60,8 +60,8 @@ class LogIn extends Component{
                     </div>
                     
 
-
-                    <div className='btn-submit'>
+                    <p className='forgot-pass'><a href='#'>Forgot password?</a></p>
+                    <div className='btn-submit' id='login'>
                         <input 
                             type="submit" 
                             value="Log in"

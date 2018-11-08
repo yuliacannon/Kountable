@@ -1,8 +1,58 @@
-.header{
-  height: 50px;
+header{
+  height: 8vh;
+  padding: 0 3%;
+  display: flex;
+  justify-content: space-between;
 }
 
-img{
-  height: auto;
+footer{
+  display: flex;
+  height: 8vh;
+  justify-content: space-between;
+  padding: 0 3%;
+}
+
+header img{
+  height: 8vh;
   display: inline-block;
+  
+}
+
+.content{
+  background-color: #fff;
+  min-height: 77vh;
+  padding-top: 7vh;
+}
+
+footer img{
+  
+  display: inline-block;
+  height: 8vh;
+}
+
+footer ul{
+  list-style-type: none;
+  margin: auto;
+  font-size: 14px;
+  
+}
+
+footer ul li{
+  display: inline;
+  color: #0080d5;
+  margin-left: 10px;
+}
+
+footer ul li a:visited{
+  color: #0080d5;
+}
+
+footer p{
+  display: inline;
+  margin: auto 0;
+  color: #768894;
+}
+
+.footer-left{
+  display: flex;
 }

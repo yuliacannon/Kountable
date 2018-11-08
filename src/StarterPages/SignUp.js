@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom'
+import {withRouter} from "react-router-dom";
 import eye from '../img/round-remove_red_eye-24px.svg'
 
 class SignUp extends Component{
@@ -8,19 +9,19 @@ class SignUp extends Component{
         type: 'password',
         email: '',
         password: '',
-        validateForm: false
+        isFormValid: false
     };
 
     handleChange =(e) =>{
-        this.setState({ [e.target.name] : e.target.value });
+        this.setState({
+             [e.target.name] : e.target.value
+         },  this.validateForm);
        }
 
     validateForm =()=>{
-        
-        if(this.state.email.length > 0 && this.state.password.length > 0){
-                this.setState({validateForm: true});
-            }
-            return !this.state.validateForm;
+        this.setState({
+            isFormValid: this.state.email.length > 0 && this.state.password.length > 0
+        })
         }
 
     showPassword = ()=>{
@@ -78,7 +79,7 @@ class SignUp extends Component{
 
                     <div className='btn-submit'>
                         <input 
-                            //disabled={this.validateForm}
+                            disabled={!this.state.isFormValid}
                             onClick={this.saveAccount} 
                             type="submit" value="Sign up" 
                             />
@@ -90,4 +91,4 @@ class SignUp extends Component{
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

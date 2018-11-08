@@ -47,7 +47,8 @@ input::placeholder{
     width: 50%;
     text-align: center;
     display: block;
-    margin: 40% auto;
+    margin: auto;
+    margin-top: 100px;
     
 
 }
@@ -59,6 +60,7 @@ input::placeholder{
     height: 35px;
     color: #fff;
     cursor: pointer;
+    border-radius: 2%;
 }
 
 .btn-submit input:hover{
@@ -89,5 +91,17 @@ p{
     cursor: pointer;
 }
 
+ a{
+    color: #0080d6;
+}
 
- 
+.forgot-pass{
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 5px;
+    margin-top: 70px;
+}
+
+#login{
+    margin-top:0;
+}
