@@ -2,19 +2,23 @@
 import React, {Component} from 'react'
 import Select from 'react-select'
 import { Link } from 'react-router-dom'
+import {Countries} from './CountriesList'
 
 
 
 
- 
+const selectStyle={
+    background: "#000"    
+};
 
 class BusinesInformation extends Component{
 
-    options = [
-    // ...
-    { value: 'Stanford University', label: 'Stanford' },
-    // ...
-    ];
+    
+    options = Countries.map(function(fruit){
+        return {label: fruit, value: fruit}
+    });
+
+    
     
     render(){
         return(
@@ -45,6 +49,7 @@ class BusinesInformation extends Component{
                             options={this.options}
                             placeholder='Country'
                             name='country'
+                            style={selectStyle}
                             
                              />
                     </label>
