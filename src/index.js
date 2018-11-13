@@ -10,6 +10,8 @@ import SignUp from "./StarterPages/SignUp";
 import LogIn from "./StarterPages/LogIn";
 import App from "./App";
 import BusinesInformation from "./CreateProject/BusinesInformation";
+import MainPage from "./CreateProject/MainPage";
+import SupplierInformation from "./CreateProject/SupplierInformation";
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
@@ -45,7 +47,10 @@ ReactDOM.render(
     <Switch>
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={LogIn} />
-      <PrivateRoute path="/business-info" component={BusinesInformation} />
+      <Route path="/business-info" component={BusinesInformation} />
+      <Route path="/supplier" component={SupplierInformation} />
+      <Route exactpath="/" component={MainPage} />
+      {/*PrivateRoute */}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

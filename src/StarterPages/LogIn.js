@@ -46,7 +46,7 @@ class LogIn extends Component {
       });
 
       if (filteredUsers.length) {
-        alert("You are logged in");
+        alert("fggg");
         this.setState(() => ({
           redirectToReferrer: true
         }));
@@ -55,7 +55,9 @@ class LogIn extends Component {
   };
 
   render() {
-    const { from } = { from: { pathname: "/business-info" } }; //this.props.location.state ||
+    const { from } = this.props.location.state || {
+      from: { pathname: "/business-info" }
+    };
     const { redirectToReferrer } = this.state;
 
     if (redirectToReferrer === true) {
