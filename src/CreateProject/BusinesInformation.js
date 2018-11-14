@@ -1,17 +1,47 @@
-//import './BusinesInformation.css'
+import "./BusinesInformation.css";
 import React, { Component } from "react";
 import Select from "react-select";
-import { Link } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { Countries } from "./CountriesList";
-
-const selectStyle = {
-  background: "#000"
-};
+import SupplierInformation from "./SupplierInformation";
 
 class BusinesInformation extends Component {
-  options = Countries.map(function(fruit) {
-    return { label: fruit, value: fruit };
+  state = {
+    company: "",
+    country: "",
+    isFormValid: false,
+    list: []
+  };
+
+  options = Countries.map(function(country) {
+    return { label: country, value: country };
   });
+
+  handleChange = e => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      },
+      this.validateForm
+    );
+  };
+
+  next = () => {
+    let data = JSON.parse(localStorage.getItem("data")) || [];
+    data.push({
+      company: this.state.company,
+      country: this.state.country
+    });
+    localStorage.setItem("data", JSON.stringify(data));
+    //<Redirect to="supplier" />;
+    this.props.history.push("supplier");
+  };
+
+  validateForm = () => {
+    this.setState({
+      isFormValid: this.state.company.length > 0 //&& this.state.country.length > 0
+    });
+  };
 
   render() {
     return (
@@ -27,7 +57,7 @@ class BusinesInformation extends Component {
             <input
               type="text"
               onChange={this.handleChange}
-              //value={this.state.company}
+              value={this.state.company}
               placeholder="Company name"
               name="company"
               required
@@ -36,26 +66,24 @@ class BusinesInformation extends Component {
 
           <label htmlFor="text">
             In what country is your business registered?
-            {/* <input 
-                        type="text"  
-                        onChange={this.handleChange} 
-                        //value={this.state.country} 
-                        placeholder='Country' 
-                        name="country" 
-                        required/>  */}
             <Select
+              type="text"
+              onChange={opt =>
+                this.setState({ [this.state.country]: opt.value })
+              }
               options={this.options}
               placeholder="Country"
               name="country"
-              style={selectStyle}
+              value={this.options.value}
+              //value={this.state.country}
             />
           </label>
 
           <div className="btn-submit">
             <input
-              //disabled={this.validateForm}
+              disabled={!this.state.isFormValid}
               onClick={this.next}
-              type="submit"
+              type="button"
               value="Next"
             />
           </div>
@@ -65,4 +93,4 @@ class BusinesInformation extends Component {
   }
 }
 
-export default BusinesInformation;
+export default withRouter(BusinesInformation);

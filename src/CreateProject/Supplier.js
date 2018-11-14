@@ -2,6 +2,22 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Supplier extends Component {
+  state = {
+    company: "",
+    goods: "",
+    price: "",
+    currency: ""
+  };
+  handleChange = e => {
+    this.props.handleData(e, e.target.value);
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      },
+      this.validateForm
+    );
+  };
+
   render() {
     return (
       <div className="supplier-item">
@@ -11,10 +27,10 @@ class Supplier extends Component {
             What is the name of your supplier?
             <input
               type="text"
-              //onChange={this.handleChange}
-              //value={this.state.email}
+              onChange={this.handleChange}
+              value={this.state.company}
               placeholder="Company name"
-              name="email"
+              name="company"
               required
             />
           </label>
@@ -22,26 +38,35 @@ class Supplier extends Component {
             What goods are you purchasing from this supplier?
             <input
               type="text"
+              onChange={this.handleChange}
+              value={this.state.goods}
               placeholder="Name of Goods"
-              name="email"
+              name="goods"
               required
             />
           </label>
-          <label htmlFor="goods">
-            What goods are you purchasing from this supplier?
-            <input
-              type="text"
-              placeholder="Name of Goods"
-              name="email"
-              required
-            />
-          </label>
+
           <fieldset>
-            <label htmlFor="goods">
+            <label htmlFor="price">
               How much are you paying for these goods?
-              <input type="number" step="any" required />
+              <input
+                type="number"
+                step="any"
+                onChange={this.handleChange}
+                value={this.state.price}
+                name="price"
+                placeholder="0.00"
+                required
+              />
             </label>
-            <input type="text" required />
+            <input
+              type="text"
+              placeholder="USD"
+              onChange={this.handleChange}
+              value={this.state.currency}
+              name="currency"
+              required
+            />
           </fieldset>
         </form>
       </div>

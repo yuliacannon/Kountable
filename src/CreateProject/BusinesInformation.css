@@ -1,4 +1,4 @@
-.main-wrapper{
+/* .main-wrapper{
     width: 35vw;
     margin: auto;
     height: 70vh;
@@ -54,4 +54,8 @@ input::-webkit-calendar-picker-indicator {
   }
    
 
-
+ */
+body {
+  background-color: #fff;
+  color: #000;
+}
