@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SignUp.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import eye from "../img/round-remove_red_eye-24px.svg";
 
@@ -45,6 +45,7 @@ class SignUp extends Component {
     if (!filteredUsers.length) {
       users.push({ email: this.state.email, password: this.state.password });
       localStorage.setItem("users", JSON.stringify(users));
+      this.props.history.push("login");
     } else {
       alert("The user already exists.");
     }

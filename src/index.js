@@ -49,7 +49,7 @@ ReactDOM.render(
       <Route path="/login" component={LogIn} />
       <Route path="/business-info" component={BusinesInformation} />
       <Route path="/supplier" component={SupplierInformation} />
-      <Route exactpath="/" component={MainPage} />
+      <Route exact path="/" component={MainPage} />
       {/*PrivateRoute */}
     </Switch>
   </BrowserRouter>,

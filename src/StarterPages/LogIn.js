@@ -46,7 +46,6 @@ class LogIn extends Component {
       });
 
       if (filteredUsers.length) {
-        alert("fggg");
         this.setState(() => ({
           redirectToReferrer: true
         }));

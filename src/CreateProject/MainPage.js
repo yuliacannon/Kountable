@@ -1,9 +1,47 @@
 import "./MainPage.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Project from "./Project";
 
 class MainPage extends Component {
+  state = {
+    company: "",
+    country: "",
+    supplier: ""
+  };
+
+  saveStateToLocalStorage = () => {
+    let data = JSON.parse(localStorage.getItem("data")) || [];
+    // for every item in React state
+    for (let key in this.state) {
+      // save to localStorage
+      data.setItem(key, JSON.stringify(this.state[key]));
+    }
+  };
+
+  hydrateStateWithLocalStorage = () => {
+    let data = JSON.parse(localStorage.getItem("data"));
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (data.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = data.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  };
+
   render() {
+    this.hydrateStateWithLocalStorage();
+
     return (
       <div className="main-wrapper">
         <div className="header">
@@ -15,7 +53,8 @@ class MainPage extends Component {
           </div>
         </div>
         <div className="projects-list" />
-        fdgtrdhy
+        <Project />
+        <p>{this.state.company}</p>
       </div>
     );
   }
