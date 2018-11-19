@@ -34,7 +34,8 @@ class LogIn extends Component {
     });
   };
 
-  logIn = () => {
+  logIn = e => {
+    e.preventDefault();
     fakeAuth.authenticate(() => {
       let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -46,26 +47,18 @@ class LogIn extends Component {
       });
 
       if (filteredUsers.length) {
-        this.setState(() => ({
-          redirectToReferrer: true
-        }));
+        const { from } = this.props.location.state || {
+          from: { pathname: "/business-info" }
+        };
+        this.props.history.push(from);
       }
     });
   };
 
   render() {
-    const { from } = this.props.location.state || {
-      from: { pathname: "/business-info" }
-    };
-    const { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer === true) {
-      return <Redirect to={from} />;
-    }
-
     return (
       <div className="main-wrapper">
-        <form className="registration-form">
+        <form onSubmit={this.logIn} className="registration-form">
           <h1>Log in to your account</h1>
 
           <label htmlFor="email">
@@ -99,7 +92,7 @@ class LogIn extends Component {
             <a href="#">Forgot password?</a>
           </p>
           <div className="btn-submit" id="login">
-            <input type="submit" value="Log in" onClick={this.logIn} />
+            <input type="submit" value="Log in" />
           </div>
         </form>
         <p>

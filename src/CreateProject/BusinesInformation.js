@@ -68,14 +68,12 @@ class BusinesInformation extends Component {
             In what country is your business registered?
             <Select
               type="text"
-              onChange={opt =>
-                this.setState({ [this.state.country]: opt.value })
-              }
+              onChange={opt => this.setState({ country: opt.value })}
               options={this.options}
               placeholder="Country"
               name="country"
-              value={this.options.value}
-              //value={this.state.country}
+              //value={this.options.value}
+              selectValue={this.state.country}
             />
           </label>
 

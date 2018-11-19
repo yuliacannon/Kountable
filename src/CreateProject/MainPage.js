@@ -20,6 +20,7 @@ class MainPage extends Component {
   };
 
   hydrateStateWithLocalStorage = () => {
+    console.log("im in function");
     let data = JSON.parse(localStorage.getItem("data"));
     // for all items in state
     for (let key in this.state) {
@@ -39,8 +40,12 @@ class MainPage extends Component {
     }
   };
 
-  render() {
+  componentWillMount() {
     this.hydrateStateWithLocalStorage();
+  }
+
+  render() {
+    //this.hydrateStateWithLocalStorage();
 
     return (
       <div className="main-wrapper">
