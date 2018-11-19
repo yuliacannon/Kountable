@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./SignUp.css";
 import { Link, Redirect } from "react-router-dom";
 import eye from "../img/round-remove_red_eye-24px.svg";
+import { withRouter } from "react-router-dom";
 
 export const fakeAuth = {
   isAuthenticated: false,
@@ -103,4 +104,4 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export default withRouter(LogIn);

@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
+import { Switch, BrowserRouter, Redirect, Router } from "react-router-dom";
+import { Route } from "react-router4-with-layouts";
 import * as serviceWorker from "./serviceWorker";
 
 import { fakeAuth } from "./StarterPages/LogIn";
@@ -12,6 +13,9 @@ import App from "./App";
 import BusinesInformation from "./CreateProject/BusinesInformation";
 import MainPage from "./CreateProject/MainPage";
 import SupplierInformation from "./CreateProject/SupplierInformation";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
@@ -43,16 +47,20 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router history={history}>
     <Switch>
-      <Route path="/signup" component={SignUp} />
-      <Route path="/login" component={LogIn} />
-      <Route path="/business-info" component={BusinesInformation} />
+      <Route
+        path="/business-info"
+        component={BusinesInformation}
+        layout={App}
+      />
       <Route path="/supplier" component={SupplierInformation} />
       <Route exact path="/" component={MainPage} />
-      {/*PrivateRoute */}
+
+      <Route path="/signup" component={SignUp} exact layout={StarterLayout} />
+      <Route path="/login" component={LogIn} layout={StarterLayout} />
     </Switch>
-  </BrowserRouter>,
+  </Router>,
   document.getElementById("root")
 );
 

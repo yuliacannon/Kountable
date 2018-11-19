@@ -14,7 +14,6 @@ class App extends Component {
             <img src={logo} alt="logo" />
             <img src={user} alt="logoUser" />
           </header>
-
           <div className="content">{this.props.children}</div>
 
           <footer>
