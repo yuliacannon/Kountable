@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./SignUp.css";
+import "./SignUp.scss";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import eye from "../img/round-remove_red_eye-24px.svg";
@@ -53,7 +53,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="main-wrapper">
+      <div className="signup">
         <form className="registration-form">
           <h1>Create an account</h1>
 

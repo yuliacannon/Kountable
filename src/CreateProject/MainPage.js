@@ -1,4 +1,4 @@
-import "./MainPage.css";
+import "../CreateProject/MainPage.scss";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Project from "./Project";
@@ -48,12 +48,12 @@ class MainPage extends Component {
     //this.hydrateStateWithLocalStorage();
 
     return (
-      <div className="main-wrapper">
+      <div className="main-page">
         <div className="header">
           <h1>Projects</h1>
           <div className="btn-add-project">
             <button type="button" value="Add new project">
-              <Link to="/business-info">Add new project</Link>
+              <Link to="/business-info">+ Add new project</Link>
             </button>
           </div>
         </div>

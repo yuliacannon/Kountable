@@ -1,4 +1,4 @@
-import "./BusinesInformation.css";
+import "./BusinesInformation.scss";
 import React, { Component } from "react";
 import Select from "react-select";
 import { Link, withRouter, Redirect } from "react-router-dom";
@@ -45,8 +45,8 @@ class BusinesInformation extends Component {
 
   render() {
     return (
-      <div className="main-wrapper">
-        <Link to="/login">
+      <div className="business-main">
+        <Link to="/">
           <span className="close" />
         </Link>
         <form className="busines-info">

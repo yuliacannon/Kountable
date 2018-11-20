@@ -54,8 +54,8 @@ ReactDOM.render(
         component={BusinesInformation}
         layout={App}
       />
-      <Route path="/supplier" component={SupplierInformation} />
-      <Route exact path="/" component={MainPage} />
+      <Route path="/supplier" component={SupplierInformation} layout={App} />
+      <Route exact path="/" component={MainPage} layout={App} />
 
       <Route path="/signup" component={SignUp} exact layout={StarterLayout} />
       <Route path="/login" component={LogIn} layout={StarterLayout} />

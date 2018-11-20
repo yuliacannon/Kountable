@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import logo from "../img/logo2.png";
-import "./StarterLayout.css";
+import "./StarterLayout.scss";
 import { BrowserRouter } from "react-router-dom";
 
 class StarterLayout extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="main-wrapper">
+        <div className="starter-layout">
           <div className="logo">
             <img src={logo} alt="logo" />
           </div>

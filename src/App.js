@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./img/logo2.png";
 import logo2 from "./img/logo3.png";
 import user from "./img/user.png";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 
 class App extends Component {

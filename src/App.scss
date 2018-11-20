@@ -1,3 +1,63 @@
-.app{
-    background-color: aqua;
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  header {
+    height: 9vh;
+    padding: 0 3%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #163656;
+    img {
+      height: 8vh;
+      display: inline-block;
+    }
+  }
+  footer {
+    display: flex;
+    height: 7vh;
+    justify-content: space-between;
+    padding: 0 3%;
+    background-color: #163656;
+    flex-shrink: 0;
+
+    ul {
+      list-style-type: none;
+      margin: auto;
+      font-size: 14px;
+      li {
+        display: inline;
+        color: #0080d5;
+        margin-left: 10px;
+        a {
+          color: #0080d5;
+        }
+        a:visited {
+          color: #0080d5;
+        }
+      }
+    }
+
+    img {
+      display: inline-block;
+      height: 7vh;
+    }
+
+    p {
+      display: inline;
+      margin: auto 0;
+      color: #768894;
+      font-size: 12px;
+    }
+  }
+
+  .footer-left {
+    display: flex;
+  }
+
+  .content {
+    background-color: #fff;
+    //min-height: 77vh;
+    //padding-top: 7vh;
+  }
 }

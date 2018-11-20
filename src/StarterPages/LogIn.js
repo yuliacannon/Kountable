@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./SignUp.css";
+import "./SignUp.scss";
 import { Link, Redirect } from "react-router-dom";
 import eye from "../img/round-remove_red_eye-24px.svg";
 import { withRouter } from "react-router-dom";
@@ -58,7 +58,7 @@ class LogIn extends Component {
 
   render() {
     return (
-      <div className="main-wrapper">
+      <div className="signup">
         <form onSubmit={this.logIn} className="registration-form">
           <h1>Log in to your account</h1>
 

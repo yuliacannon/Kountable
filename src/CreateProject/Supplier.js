@@ -1,3 +1,4 @@
+import "./Supplier.scss";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -21,8 +22,11 @@ class Supplier extends Component {
   render() {
     return (
       <div className="supplier-item">
-        <h1>Supplier Information</h1>
+        <Link to="/">
+          <span className="close" />
+        </Link>
         <form>
+          <h1>Supplier Information</h1>
           <label htmlFor="supplier">
             What is the name of your supplier?
             <input

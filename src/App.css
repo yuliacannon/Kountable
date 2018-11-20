@@ -1,58 +1,58 @@
-header{
-  height: 8vh;
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.App header {
+  height: 9vh;
   padding: 0 3%;
   display: flex;
   justify-content: space-between;
+  background-color: #163656;
 }
-
-footer{
-  display: flex;
+.App header img {
   height: 8vh;
+  display: inline-block;
+}
+.App footer {
+  display: flex;
+  height: 7vh;
   justify-content: space-between;
   padding: 0 3%;
+  background-color: #163656;
+  flex-shrink: 0;
 }
-
-header img{
-  height: 8vh;
-  display: inline-block;
-  
-}
-
-.content{
-  background-color: #fff;
-  min-height: 77vh;
-  padding-top: 7vh;
-}
-
-footer img{
-  
-  display: inline-block;
-  height: 8vh;
-}
-
-footer ul{
+.App footer ul {
   list-style-type: none;
   margin: auto;
   font-size: 14px;
-  
 }
-
-footer ul li{
+.App footer ul li {
   display: inline;
   color: #0080d5;
   margin-left: 10px;
 }
-
-footer ul li a:visited{
+.App footer ul li a {
   color: #0080d5;
 }
-
-footer p{
+.App footer ul li a:visited {
+  color: #0080d5;
+}
+.App footer img {
+  display: inline-block;
+  height: 7vh;
+}
+.App footer p {
   display: inline;
   margin: auto 0;
   color: #768894;
+  font-size: 12px;
 }
-
-.footer-left{
+.App .footer-left {
   display: flex;
 }
+.App .content {
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=App.css.map */

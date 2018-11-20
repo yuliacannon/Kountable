@@ -1,0 +1,25 @@
+.supplier-info {
+  .btn-submit {
+    margin-right: 140%;
+    margin-left: 10%;
+    width: 50%;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+
+    input {
+      text-indent: 0;
+      background-color: #0080d6;
+      box-shadow: none;
+      height: 35px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 2%;
+
+      &:hover {
+        background-color: lighten(#0080d6, 5%);
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-//import "./MainPage.css";
+import "./SupplierInfo.scss";
 import React, { Component } from "react";
 import Supplier from "./Supplier";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ class SupplierInformation extends Component {
 
   render() {
     return (
-      <div className="main-wrapper">
+      <div className="supplier-info">
         <Supplier handleData={this.handleData} />
         <p>
           <a href="#">
