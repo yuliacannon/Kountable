@@ -23,7 +23,6 @@ class SupplierInformation extends Component {
     data[0].supplier = supplier;
 
     localStorage.setItem("data", JSON.stringify(data));
-    //<Redirect to="supplier" />;
     this.props.history.push("/");
   };
 
@@ -36,22 +35,24 @@ class SupplierInformation extends Component {
   render() {
     return (
       <div className="supplier-info">
-        <Supplier handleData={this.handleData} />
-        <p>
-          <a href="#">
-            <i className="fas fa-plus-circle" />
-            Add Another Supplier
-          </a>
-        </p>
-        <div className="btn-submit">
+        <div className="supplier-card">
           <Link to="/">
-            <input
-              //disabled={this.validateForm}
-              onClick={this.next}
-              type="button"
-              value="Next"
-            />
+            <span className="close" />
           </Link>
+
+          <h1>Supplier Information</h1>
+          <Supplier handleData={this.handleData} />
+          <p>
+            <a href="#">
+              <i className="fas fa-plus-circle" />
+              Add Another Supplier
+            </a>
+          </p>
+          <div className="btn-submit">
+            <button onClick={this.next} type="submit">
+              Next
+            </button>
+          </div>
         </div>
       </div>
     );

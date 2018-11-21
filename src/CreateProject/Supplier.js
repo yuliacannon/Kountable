@@ -21,49 +21,45 @@ class Supplier extends Component {
 
   render() {
     return (
-      <div className="supplier-item">
-        <Link to="/">
-          <span className="close" />
-        </Link>
-        <form>
-          <h1>Supplier Information</h1>
-          <label htmlFor="supplier">
-            What is the name of your supplier?
-            <input
-              type="text"
-              onChange={this.handleChange}
-              value={this.state.company}
-              placeholder="Company name"
-              name="company"
-              required
-            />
-          </label>
-          <label htmlFor="goods">
-            What goods are you purchasing from this supplier?
-            <input
-              type="text"
-              onChange={this.handleChange}
-              value={this.state.goods}
-              placeholder="Name of Goods"
-              name="goods"
-              required
-            />
-          </label>
+      <form className="supplier-form">
+        <label htmlFor="supplier">
+          What is the name of your supplier?
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.company}
+            placeholder="Company name"
+            name="company"
+            required
+          />
+        </label>
+        <label htmlFor="goods">
+          What goods are you purchasing from this supplier?
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.goods}
+            placeholder="Name of Goods"
+            name="goods"
+            required
+          />
+        </label>
 
-          <fieldset>
-            <label htmlFor="price">
-              How much are you paying for these goods?
-              <input
-                type="number"
-                step="any"
-                onChange={this.handleChange}
-                value={this.state.price}
-                name="price"
-                placeholder="0.00"
-                required
-              />
-            </label>
+        <fieldset>
+          <label htmlFor="price">
+            How much are you paying for these goods?
             <input
+              className="left-input"
+              type="number"
+              step="any"
+              onChange={this.handleChange}
+              value={this.state.price}
+              name="price"
+              placeholder="0.00"
+              required
+            />
+            <input
+              className="right-input"
               type="text"
               placeholder="USD"
               onChange={this.handleChange}
@@ -71,9 +67,9 @@ class Supplier extends Component {
               name="currency"
               required
             />
-          </fieldset>
-        </form>
-      </div>
+          </label>
+        </fieldset>
+      </form>
     );
   }
 }

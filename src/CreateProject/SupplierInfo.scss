@@ -1,24 +1,70 @@
 .supplier-info {
-  .btn-submit {
-    margin-right: 140%;
-    margin-left: 10%;
-    width: 50%;
-    text-align: center;
-    display: block;
-    margin: auto;
-    margin-top: 100px;
+  .supplier-card {
+    width: 30vw;
+    margin: 5% auto;
 
-    input {
-      text-indent: 0;
-      background-color: #0080d6;
-      box-shadow: none;
-      height: 35px;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 2%;
+    box-shadow: 0px 0px 13px -5px #768894;
+    position: relative;
+    font-weight: bolder;
+    h1 {
+      padding-top: 7%;
+      font-size: 15px;
+      padding-bottom: 7%;
+      font-weight: 500;
+      text-align: center;
+    }
 
-      &:hover {
-        background-color: lighten(#0080d6, 5%);
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      width: 15px;
+      height: 32px;
+    }
+    .close:before,
+    .close:after {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 15px;
+      width: 2px;
+      background-color: #333;
+      opacity: 0.7;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+    p {
+      text-align: center;
+      margin-top: -10%;
+      margin-bottom: 20%;
+      a {
+        font-size: 13px;
+        color: #0080d6;
+      }
+    }
+
+    .btn-submit {
+      text-align: center;
+      margin: auto;
+      padding-bottom: 5%;
+
+      button {
+        width: 30%;
+        background-color: #0080d6;
+        box-shadow: none;
+        height: 35px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 2%;
+        border: none;
+
+        &:hover {
+          background-color: lighten(#0080d6, 5%);
+        }
       }
     }
   }

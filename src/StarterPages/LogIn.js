@@ -49,7 +49,7 @@ class LogIn extends Component {
 
       if (filteredUsers.length) {
         const { from } = this.props.location.state || {
-          from: { pathname: "/business-info" }
+          from: { pathname: "/" }
         };
         this.props.history.push(from);
       }

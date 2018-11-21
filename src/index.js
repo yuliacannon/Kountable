@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { Switch, BrowserRouter, Redirect, Router } from "react-router-dom";
-import { Route } from "react-router4-with-layouts";
+import {
+  Switch,
+  BrowserRouter,
+  Redirect,
+  Router,
+  Route
+} from "react-router-dom";
+//import { Route } from "react-router4-with-layouts";
 import * as serviceWorker from "./serviceWorker";
 
 import { fakeAuth } from "./StarterPages/LogIn";
@@ -28,12 +34,14 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   />
 );
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
     {...rest}
     render={props =>
       fakeAuth.isAuthenticated === true ? (
-        <Component {...props} />
+        <Layout>
+          <Component {...props} />
+        </Layout>
       ) : (
         <Redirect
           to={{
@@ -46,19 +54,42 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
+// ReactDOM.render(
+//   <Router history={history}>
+//     <Switch>
+//       <Route
+//         path="/business-info"
+//         component={BusinesInformation}
+//         layout={App}
+//       />
+//       <Route path="/supplier" component={SupplierInformation} layout={App} />
+//       <Route exact path="/" component={MainPage} layout={App} />
+
+//       <Route path="/signup" component={SignUp} exact layout={StarterLayout} />
+//       <Route path="/login" component={LogIn} layout={StarterLayout} />
+//     </Switch>
+//   </Router>,
+//   document.getElementById("root")
+// );
+
 ReactDOM.render(
   <Router history={history}>
     <Switch>
-      <Route
+      <AppRoute
         path="/business-info"
         component={BusinesInformation}
         layout={App}
       />
-      <Route path="/supplier" component={SupplierInformation} layout={App} />
-      <Route exact path="/" component={MainPage} layout={App} />
+      <AppRoute path="/supplier" component={SupplierInformation} layout={App} />
+      <AppRoute exact path="/" component={MainPage} layout={App} />
 
-      <Route path="/signup" component={SignUp} exact layout={StarterLayout} />
-      <Route path="/login" component={LogIn} layout={StarterLayout} />
+      <AppRoute
+        path="/signup"
+        component={SignUp}
+        exact
+        layout={StarterLayout}
+      />
+      <AppRoute path="/login" component={LogIn} layout={StarterLayout} />
     </Switch>
   </Router>,
   document.getElementById("root")
