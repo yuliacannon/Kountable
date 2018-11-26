@@ -20,7 +20,8 @@ class SupplierInformation extends Component {
       price: this.state.price,
       currency: this.state.currency
     };
-    data[0].supplier = supplier;
+    let len = data.length;
+    data[len - 1].supplier = supplier;
 
     localStorage.setItem("data", JSON.stringify(data));
     this.props.history.push("/");

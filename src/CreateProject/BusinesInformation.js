@@ -32,6 +32,7 @@ class BusinesInformation extends Component {
       company: this.state.company,
       country: this.state.country
     });
+
     localStorage.setItem("data", JSON.stringify(data));
     //<Redirect to="supplier" />;
     this.props.history.push("supplier");

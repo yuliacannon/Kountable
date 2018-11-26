@@ -5,39 +5,12 @@ import Project from "./Project";
 
 class MainPage extends Component {
   state = {
-    company: "",
-    country: "",
-    supplier: ""
-  };
-
-  saveStateToLocalStorage = () => {
-    let data = JSON.parse(localStorage.getItem("data")) || [];
-    // for every item in React state
-    for (let key in this.state) {
-      // save to localStorage
-      data.setItem(key, JSON.stringify(this.state[key]));
-    }
+    data: []
   };
 
   hydrateStateWithLocalStorage = () => {
-    console.log("im in function");
-    let data = JSON.parse(localStorage.getItem("data"));
-    // for all items in state
-    for (let key in this.state) {
-      // if the key exists in localStorage
-      if (data.hasOwnProperty(key)) {
-        // get the key's value from localStorage
-        let value = data.getItem(key);
-
-        // parse the localStorage string and setState
-        try {
-          this.setState({ [key]: value });
-        } catch (e) {
-          // handle empty string
-          this.setState({ [key]: value });
-        }
-      }
-    }
+    let d = JSON.parse(localStorage.getItem("data"));
+    this.setState({ data: d });
   };
 
   componentWillMount() {
@@ -45,7 +18,17 @@ class MainPage extends Component {
   }
 
   render() {
-    //this.hydrateStateWithLocalStorage();
+    let projects = null;
+
+    projects = (
+      <div>
+        {this.state.data.map(dataItem => {
+          return (
+            <Project country={dataItem.country} company={dataItem.company} />
+          );
+        })}
+      </div>
+    );
 
     return (
       <div className="main-page">
@@ -58,8 +41,7 @@ class MainPage extends Component {
           </div>
         </div>
         <div className="projects-list" />
-        <Project />
-        <p>{this.state.company}</p>
+        {projects}
       </div>
     );
   }
