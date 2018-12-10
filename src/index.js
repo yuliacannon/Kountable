@@ -20,6 +20,7 @@ import BusinesInformation from "./CreateProject/BusinesInformation";
 import MainPage from "./CreateProject/MainPage";
 import SupplierInformation from "./CreateProject/SupplierInformation";
 import { createBrowserHistory } from "history";
+import Edit from "./CreateProject/Edit";
 
 const history = createBrowserHistory();
 
@@ -73,7 +74,7 @@ const PrivateRoute = ({ component: Component, layout: Layout, ...rest }) => (
 // );
 
 ReactDOM.render(
-  <Router history={history}>
+  <BrowserRouter history={history}>
     <Switch>
       <AppRoute
         path="/business-info"
@@ -82,6 +83,7 @@ ReactDOM.render(
       />
       <AppRoute path="/supplier" component={SupplierInformation} layout={App} />
       <AppRoute exact path="/" component={MainPage} layout={App} />
+      <AppRoute exact path="/edit" component={Edit} layout={App} />
 
       <AppRoute
         path="/signup"
@@ -91,7 +93,7 @@ ReactDOM.render(
       />
       <AppRoute path="/login" component={LogIn} layout={StarterLayout} />
     </Switch>
-  </Router>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

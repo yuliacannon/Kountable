@@ -1,4 +1,4 @@
-import "../CreateProject/MainPage.scss";
+import "./styles/MainPage.scss";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Project from "./Project";
@@ -20,15 +20,19 @@ class MainPage extends Component {
   render() {
     let projects = null;
 
-    projects = (
-      <div>
-        {this.state.data.map(dataItem => {
-          return (
-            <Project country={dataItem.country} company={dataItem.company} />
-          );
-        })}
-      </div>
-    );
+    if (this.state.data) {
+      projects = (
+        <div>
+          {this.state.data.map(dataItem => {
+            return (
+              <Project country={dataItem.country} company={dataItem.company} />
+            );
+          })}
+        </div>
+      );
+    } else {
+      projects = null;
+    }
 
     return (
       <div className="main-page">
@@ -40,8 +44,7 @@ class MainPage extends Component {
             </button>
           </div>
         </div>
-        <div className="projects-list" />
-        {projects}
+        <div className="projects-list">{projects}</div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Project.scss";
+import "./styles/Project.scss";
 
 const Project = props => {
   return (

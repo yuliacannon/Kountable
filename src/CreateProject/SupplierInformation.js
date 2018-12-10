@@ -1,4 +1,4 @@
-import "./SupplierInfo.scss";
+import "./styles/SupplierInfo.scss";
 import React, { Component } from "react";
 import Supplier from "./Supplier";
 import { Link } from "react-router-dom";

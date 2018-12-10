@@ -1,0 +1,50 @@
+.edit-card {
+  text-align: center;
+  width: 30vw;
+  margin: 5% auto;
+  box-shadow: 0px 0px 13px -5px #768894;
+  padding: 40px 0;
+  h1 {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  form {
+    width: 70%;
+    margin: auto;
+    label {
+      margin-top: 60px;
+      text-align: left;
+      font-size: 13px;
+      color: #768894;
+      font-weight: 500;
+      hr {
+        margin-bottom: 5px;
+      }
+    }
+    input {
+      width: 100%;
+      border: none;
+    }
+  }
+  .btn-submit {
+    margin-top: 40px;
+    text-align: center;
+
+    input {
+      font-weight: 500;
+      text-indent: 0;
+      background-color: #0080d6;
+      box-shadow: none;
+      height: 35px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 2%;
+      border: none;
+      width: 40%;
+
+      &:hover {
+        background-color: lighten(#0080d6, 5%);
+      }
+    }
+  }
+}

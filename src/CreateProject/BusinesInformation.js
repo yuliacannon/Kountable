@@ -1,4 +1,4 @@
-import "./BusinesInformation.scss";
+import "./styles/BusinesInformation.scss";
 import React, { Component } from "react";
 import Select from "react-select";
 import { Link, withRouter, Redirect } from "react-router-dom";
